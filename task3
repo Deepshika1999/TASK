@@ -1,0 +1,54 @@
+package calculator;
+
+import java.util.*;
+
+public class Main 
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of digits:");
+		int t=sc.nextInt();
+		System.out.println("Enter the name of the operation:");
+		String ch=sc.next();
+		int ans=1,Ans=0,max=0;
+		while(ch.equals("Multiplication")&&t--!=0)
+		{
+			System.out.println("Enter the digit:");
+			int n=sc.nextInt();
+			ans=ans*n;
+			
+		}
+		if(ch.equals("Division")&&t==2)
+		{
+			System.out.println("Enter the digit:");
+			int a=sc.nextInt();
+			System.out.println("Enter the digit:");
+			int b=sc.nextInt();
+			ans=a/b;
+			
+		}
+		while(t--!=0&&!ch.equals("Division")&&!ch.equals("Multiplication"))
+		{
+			System.out.println("Enter the digit: ");
+			int n=sc.nextInt();
+			if(ch.equals("Addition"))
+	        {
+	            Ans=Ans+n;
+	            ans=Ans;
+	        }
+	        else if(ch.equals("Subtraction"))
+	        {
+	        	if(n>=max)
+	        		max=n;
+	        	if(n<max)
+	        		Ans=Ans+n;
+	            ans=max-Ans;
+	        }
+		}
+		
+		System.out.print(ch);
+		System.out.println(" of the given digits:"+ans);
+	}
+}
+
